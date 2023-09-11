@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .slide-container{
+            width: 100%;
+            position: relative;
+
+        }
+        .slide{
+            width:80vw;
+            height: 50vh;
+            margin: 0 auto;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .arrow{
+            cursor: pointer;
+            position: absolute;
+            top: 45%;
+            color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(0, 0, 0, 0.837);
+            padding: 20px 30px;
+            border-radius: 50%;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .next{
+           right: 15px;
+        }
+        .prev{
+            left: 15px;
+        }
+        .slide{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide">
+            <img src="./images/image1.avif" alt="">
+        </div>
+
+        <div class="slide">
+            <img src="./images/image2.jpeg" alt="">
+        </div>
+
+        <div class="slide">
+            <img src="./images/image3.jpg" alt="">
+        </div>
+
+        <div class="slide">
+            <img src="./images/image4.avif" alt="">
+        </div>
+
+        <div class="slide">
+            <img src="./images/image-5.avif" alt="">
+        </div>
+
+        <span class="arrow prev" onclick="control(-1)">&#10094;</span>
+        <span class="arrow next"  onclick="control(1)">&#10095;</span>
+    </div>
+
+
+    <script>
+        let x = 0;
+
+        function control(y) {
+            x = x+y;
+            slider(x);
+        }
+
+        function slider(a){
+            let sl = document.getElementsByClassName('slide');
+
+            if (a == sl.length) {
+                x = 0;
+                a = 0;
+            }
+
+            if (a < 0) {
+                x = sl.length - 1;
+                a = sl.length - 1;
+
+            }
+
+            for (let b of sl){
+             b.style.display = "none";
+            // console.log(sl);
+             
+            sl[a].style.display = "block";
+
+            
+           }
+
+        }
+        slider(x);
+
+       
+    </script>
+</body>
+</html>
