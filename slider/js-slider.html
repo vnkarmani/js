@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
+        body {
             margin: 0;
         }
-        .slide-container{
+
+        .slide-container {
             width: 100%;
             position: relative;
 
         }
-        .slide{
-            width:80vw;
+
+        .slide {
+            width: 80vw;
             height: 50vh;
             margin: 0 auto;
         }
-        img{
+
+        img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .arrow{
+
+        .arrow {
             cursor: pointer;
             position: absolute;
             top: 45%;
@@ -34,18 +39,21 @@
             font-size: 25px;
             font-weight: bold;
         }
-        .next{
-           right: 15px;
-        }
-        .prev{
-            left: 15px;
-        }
-        .slide{
-            display: none;
+
+        .next {
+            right: 15px;
         }
 
+        .prev {
+            left: 15px;
+        }
+
+        .slide {
+            display: none;
+        }
     </style>
 </head>
+
 <body>
     <div class="slide-container">
         <div class="slide">
@@ -69,7 +77,7 @@
         </div>
 
         <span class="arrow prev" onclick="control(-1)">&#10094;</span>
-        <span class="arrow next"  onclick="control(1)">&#10095;</span>
+        <span class="arrow next" onclick="control(1)">&#10095;</span>
     </div>
 
 
@@ -77,11 +85,11 @@
         let x = 0;
 
         function control(y) {
-            x = x+y;
+            x = x + y;
             slider(x);
         }
 
-        function slider(a){
+        function slider(a) {
             let sl = document.getElementsByClassName('slide');
 
             if (a == sl.length) {
@@ -95,19 +103,20 @@
 
             }
 
-            for (let b of sl){
-             b.style.display = "none";
-            // console.log(sl);
-             
-            sl[a].style.display = "block";
+            for (let b of sl) {
+                b.style.display = "none";
+                // console.log(sl);
 
-            
-           }
+                sl[a].style.display = "block";
+
+
+            }
 
         }
         slider(x);
 
-       
+
     </script>
 </body>
+
 </html>
