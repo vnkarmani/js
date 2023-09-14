@@ -6,36 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .form{
+        .form {
             /* border: 1px solid; */
             /* width: 70%; */
-    
+
         }
-        table{
+
+        table {
             /* border: 1px solid; */
-            width:50%
+            width: 50%
         }
-        tr>td{
+
+        tr>td {
             /* border: 1px solid; */
         }
-        input{
+
+        input {
             width: 50%;
-            padding:10px;
+            padding: 10px;
             border-radius: 3px;
         }
-        a{
+
+        a {
             text-decoration: none;
             border: 1px solid;
             border-radius: 5px;
             background-color: blue;
-            color:white;
+            color: white;
             width: 20%;
             margin: 5px;
             padding: 10px;
             display: block;
-            
+
         }
-        .txt-algn-rgt{
+
+        .txt-algn-rgt {
             text-align: right;
         }
     </style>
@@ -43,68 +48,60 @@
 
 <body>
     <div class="form">
-    <table>
-        <tr>
-            <td class="txt-algn-rgt">
-                 <label for="full-name">Full Name:</label>
+        <table>
+            <tr>
+                <td class="txt-algn-rgt">
+                    <label for="full-name">Full Name:</label>
                 </td>
-            <td>
-                 <input type="text" onblur="checkvalidate(this,'usernameError')" name="full-name" id="full-name"
-                    placeholder="enter your name" required />
+                <td>
+                    <input type="text" onblur="checkvalidate(this,'usernameError')" name="full-name" id="full-name"
+                        placeholder="enter your name" required />
                     <span id="usernameError"></span>
                 </td>
-        </tr>
+            </tr>
 
+            <tr>
+                <td class="txt-algn-rgt">
+                    <label for="email-input">Email:</label>
+                </td>
+                <td>
+                    <input type="email" onblur="checkvalidate(this,'email-error')" name="email-input" id="email-input"
+                        placeholder="enter your email" required />
+                    <span id="email-error"></span>
+                </td>
+            </tr>
 
-        <tr>
-            <td class="txt-algn-rgt">
-                <label for="email-input">Email:</label>
-            </td>
-            <td>
-                 <input type="email"  onblur="checkvalidate(this,'email-error')"  name="email-input" id="email-input" placeholder="enter your email" required />
-                 <span id="email-error"></span>
-            </td>
-        </tr>
+            <tr>
+                <td class="txt-algn-rgt">
+                    <label for="password-input">Password:</label>
+                </td>
+                <td>
+                    <input type="password" onblur="checkvalidate(this,'passwordError')" name="password-input"
+                        id="password-input" placeholder="enter password" required />
+                    <span id="passwordError"></span>
+                </td>
+            </tr>
 
+            <tr>
+                <td class="txt-algn-rgt">
+                    <label for="Mob-no">Password:</label>
+                </td>
+                <td>
+                    <input type="number" onblur="checkvalidate(this,'mob-no-error')" name="password-input"
+                        id="password-input" placeholder="enter password" required />
+                    <span id="mob-no-error"></span>
+                </td>
+            </tr>
 
-        <tr>
-            <td class="txt-algn-rgt">
-                <label for="password-input">Password:</label>
-            </td>
-            <td>
-                <input type="password" onblur="checkvalidate(this,'passwordError')" name="password-input" id="password-input"
-            placeholder="enter password" required />
-            <span id="passwordError"></span>
-            </td>
-        </tr>
-
-        
-        <tr>
-            <td class="txt-algn-rgt">
-                <label for="Mob-no">Password:</label>
-            </td>
-            <td>
-                <input type="number" onblur="checkvalidate(this,'mob-no-error')" name="password-input" id="password-input"
-            placeholder="enter password" required />
-            <span id="mob-no-error"></span>
-            </td>
-        </tr>
-
-        <tr align="center">
-            <td  colspan="3"><a href="#">Submit</a></td>
-        </tr>
-        
-
-
-
-
-
-    </table>
-</div>
+            <tr align="center">
+                <td colspan="3"><a href="#">Submit</a></td>
+            </tr>
+        </table>
+    </div>
 
     <script>
 
-        function checkvalidate(anything,spnid) {
+        function checkvalidate(anything, spnid) {
             if (anything.value == "") {
                 document.getElementById(spnid).innerHTML = "<br>this field is required";
             } else {
