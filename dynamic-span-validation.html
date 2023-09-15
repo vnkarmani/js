@@ -54,9 +54,9 @@
                     <label for="full-name">Full Name:</label>
                 </td>
                 <td>
-                    <input type="text" onblur="checkvalidate(this,'usernameError')" name="full-name" id="full-name"
+                    <input type="text" onblur="checkvalidate(this)" name="full-name" id="full-name"
                         placeholder="enter your name" required />
-                    <span id="usernameError"></span>
+                    <!-- <span id="usernameError"></span> -->
                 </td>
             </tr>
 
@@ -65,9 +65,9 @@
                     <label for="email-input">Email:</label>
                 </td>
                 <td>
-                    <input type="email" onblur="checkvalidate(this,'email-error')" name="email-input" id="email-input"
+                    <input type="email" onblur="checkvalidate(this)" name="email-input" id="email-input"
                         placeholder="enter your email" required />
-                    <span id="email-error"></span>
+                    <!-- <span id="email-error"></span> -->
                 </td>
             </tr>
 
@@ -76,20 +76,20 @@
                     <label for="password-input">Password:</label>
                 </td>
                 <td>
-                    <input type="password" onblur="checkvalidate(this,'passwordError')" name="password-input"
-                        id="password-input" placeholder="enter password" required />
-                    <span id="passwordError"></span>
+                    <input type="password" onblur="checkvalidate(this)" name="password-input" id="password-input"
+                        placeholder="enter password" required />
+                    <!-- <span id="passwordError"></span> -->
                 </td>
             </tr>
 
             <tr>
                 <td class="txt-algn-rgt">
-                    <label for="Mob-no">Password:</label>
+                    <label for="Mob-no">Mob-no:</label>
                 </td>
                 <td>
-                    <input type="number" onblur="checkvalidate(this,'mob-no-error')" name="Mob-no"
-                        id="Mob-no" placeholder="enter Mob-no" required />
-                    <span id="mob-no-error"></span>
+                    <input type="number" onblur="checkvalidate(this)" name="Mob-no" id="Mob-no"
+                        placeholder="enter Mob-no" required />
+                    <!-- <span id="mob-no-error"></span> -->
                 </td>
             </tr>
 
@@ -100,12 +100,19 @@
     </div>
 
     <script>
+        var span_element = document.createElement('span');
+        span_element.id = 'spnid';
 
-        function checkvalidate(anything, spnid) {
+        // console.log(span_element);
+
+        function checkvalidate(anything) {
+
             if (anything.value == "") {
-                document.getElementById(spnid).innerHTML = "<br>this field is required";
+                console.log(span_element.innerHTML = "<br>this field is required");
+                // span_element.innerHTML = "<br>this field is required"
             } else {
-                document.getElementById(spnid).innerHTML = "";
+                   console.log(span_element.innerHTML = "");
+                // span_element.innerHTML = ""
             }
         }
 
