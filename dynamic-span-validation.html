@@ -5,109 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .form {
-            /* border: 1px solid; */
-            /* width: 70%; */
-
-        }
-
-        table {
-            /* border: 1px solid; */
-            width: 50%
-        }
-
-        tr>td {
-            /* border: 1px solid; */
-        }
-
-        input {
-            width: 50%;
-            padding: 10px;
-            border-radius: 3px;
-        }
-
-        a {
-            text-decoration: none;
-            border: 1px solid;
-            border-radius: 5px;
-            background-color: blue;
-            color: white;
-            width: 20%;
-            margin: 5px;
-            padding: 10px;
-            display: block;
-
-        }
-
-        .txt-algn-rgt {
-            text-align: right;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="form">
+    <form method="post">
         <table>
             <tr>
-                <td class="txt-algn-rgt">
-                    <label for="full-name">Full Name:</label>
-                </td>
-                <td id="td_1">
-                    <input type="text" onblur="checkvalidate(this)" name="full-name" id="full-name"
-                        placeholder="enter your name" required />
-                    <!-- <span id="usernameError"></span> -->
-                </td>
+                <td> <label for="username">User name</label> </td>
+                <td><input type="text" class="input-field" name="username" id="username"></td>
             </tr>
-
             <tr>
-                <td class="txt-algn-rgt">
-                    <label for="email-input">Email:</label>
-                </td>
-                <td>
-                    <input type="email" onblur="checkvalidate(this)" name="email-input" id="email-input"
-                        placeholder="enter your email" required />
-                    <!-- <span id="email-error"></span> -->
-                </td>
+                <td><label for="first-name">First name</label></td>
+                <td><input type="text" class="" name="first name" id="first-name"></td>
             </tr>
-
             <tr>
-                <td class="txt-algn-rgt">
-                    <label for="password-input">Password:</label>
-                </td>
-                <td>
-                    <input type="password" onblur="checkvalidate(this)" name="password-input" id="password-input"
-                        placeholder="enter password" required />
-                    <!-- <span id="passwordError"></span> -->
-                </td>
+                <td><label for="last-name">Last name</label></td>
+                <td><input type="text" class="" name="last name" id="last-name"></td>
             </tr>
-
             <tr>
-                <td class="txt-algn-rgt">
-                    <label for="Mob-no">Mob-no:</label>
-                </td>
-                <td>
-                    <input type="number" onblur="checkvalidate(this)" name="Mob-no" id="Mob-no"
-                        placeholder="enter Mob-no" required />
-                    <!-- <span id="mob-no-error"></span> -->
-                </td>
+                <td>new field</td>
+                <td><input type="text" class="input-field" name="nfield" id="nfield"></td>
             </tr>
-
-            <tr align="center">
-                <td colspan="3"><a href="#">Submit</a></td>
+            <tr>
+                <td>email</td>
+                <td><input type="text" class="input-field" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td>mobile</td>
+                <td><input type="text" class="input-field" name="mobile" id="mobile" required pattern="[0-9]+"
+                        minlength="10" maxlength="10" title="please enter number only"></td>
             </tr>
         </table>
-    </div>
+    </form>
+    <div id="data"></div>
 
     <script>
-        let div = document.querySelectorAll(input);
-        var span_element = document.createElement("span");
-        span_element.textContent = 'this field is required';
-        
-        div.appendChild(span_element)
+        const inputElements = document.querySelectorAll('.input-field');
 
-       
+        inputElements.forEach(input => {
+            input.addEventListener('blur', function () {
+                checkRequired(this);
+            });
+        });
 
+        function checkRequired(input) {
+            let div = document.getElementById("data");
+            let errorSpan = input.nextElementSibling;
+
+            if (input.value.trim() === "") {
+                if (!errorSpan) {
+                    errorSpan = document.createElement("span");
+                    errorSpan.textContent = "This field is required";
+                    errorSpan.style.color = "red";
+                    input.parentNode.appendChild(errorSpan);
+
+                    console.log(` called. '${input.id}'`);
+                }
+            } else {
+                if (errorSpan) {
+                    errorSpan.remove();
+                }
+
+                console.log(`called. '${input.id}'`);
+            }
+        }
     </script>
 </body>
 
