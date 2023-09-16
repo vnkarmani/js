@@ -53,7 +53,7 @@
                 <td class="txt-algn-rgt">
                     <label for="full-name">Full Name:</label>
                 </td>
-                <td>
+                <td id="td_1">
                     <input type="text" onblur="checkvalidate(this)" name="full-name" id="full-name"
                         placeholder="enter your name" required />
                     <!-- <span id="usernameError"></span> -->
@@ -100,21 +100,13 @@
     </div>
 
     <script>
-        var span_element = document.createElement('span');
-        span_element.id = 'spnid';
+        let div = document.querySelectorAll(input);
+        var span_element = document.createElement("span");
+        span_element.textContent = 'this field is required';
+        
+        div.appendChild(span_element)
 
-        // console.log(span_element);
-
-        function checkvalidate(anything) {
-
-            if (anything.value == "") {
-                console.log(span_element.innerHTML = "<br>this field is required");
-                // span_element.innerHTML = "<br>this field is required"
-            } else {
-                   console.log(span_element.innerHTML = "");
-                // span_element.innerHTML = ""
-            }
-        }
+       
 
     </script>
 </body>
