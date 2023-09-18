@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="color:green">
+        QuerySelector and QuerySelectorAll
+    </h1>
+
+    <div class="test-btn">HTML</div>
+    <div class="test-btn">CSS</div>
+    <div class="test-btn">JAVASCRIPT</div>
+    <div class="test-btn">BOOTSTRAP</div>
+
+    <button onClick="qselector()">
+        querySelector
+    </button>
+
+    <!-- <button onClick="qselectorall()">
+        querySelectorAll
+    </button> -->
+
+    <script>
+        function qselector() {
+            document.querySelector(".test-btn")
+                .style.color = "red";
+        }
+
+        // function qselectorall() {
+        //     var x = document
+        //         .querySelectorAll(".test-btn");
+
+        //     for (var i = 0; i < x.length; i++) {
+        //         x[i].style.color = "red";
+        //     }
+        // } 
+    </script>
+
+
+
+</body>
+
+</html>
