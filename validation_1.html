@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 70%;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 3px 3px 20px 4px grey;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col_50 {
+            width: 50%;
+        }
+
+        input {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            width: 80%;
+        }
+
+        input.submit {
+            width: unset;
+            margin: 0 auto;
+            padding: 10px 25px;
+            font-size: 16px;
+            border-radius: 50px;
+            border: none;
+            background-color: grey;
+            color: #fff;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        .inp {
+            position: relative;
+        }
+
+        span {
+            color: red;
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+            position: absolute;
+            top: 38px;
+            right: 55px;
+            text-align: right;
+        }
+
+        .bg {
+            background-color: aqua;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 80px;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col_50">
+                <form action="">
+                    <div class="inp">
+                        <input autofocus onblur="validation(this,'name','Name required')" type="text"
+                            placeholder="Full Name">
+                        <span id="name"></span>
+                    </div>
+
+                    <div class="inp">
+                        <input onblur="validation(this,'email','Email required')" type="email"
+                            placeholder="Email">
+                        <span id="email"></span>
+                    </div>
+
+                    <div class="inp">
+                        <input onblur="validation(this,'number','Mobile Number required')" type="number"
+                            placeholder="Mobile Number">
+                        <span id="number"></span>
+                    </div>
+
+                    <div class="inp">
+                        <input onblur="validation(this,'address','Address required')" type="text"
+                            placeholder="Address">
+                        <span id="address"></span>
+                    </div>
+
+                    <input class="submit" type="submit" value="submit" name="" id="submit">
+                </form>
+            </div>
+
+            <div class="col_50 bg">
+                <div class="wrap">
+                    <div class="icon">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </div>
+
+                    <h1>Hello,Friend</h1>
+                    <p>Enter your details and start the journey</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function validation(input, identifier, message) {
+            if
+                (input.value == '') {
+                document.getElementById(identifier).innerText = message;
+            }
+            else {
+                document.getElementById(identifier).innerText = '';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
